@@ -1,0 +1,3 @@
+mode=bench
+size=2048
+k=4

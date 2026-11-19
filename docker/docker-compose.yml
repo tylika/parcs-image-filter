@@ -1,0 +1,29 @@
+# Локальний PARCS: майстер + 4 воркери (той самий образ, що й у хмарі).
+# Веб-інтерфейс: http://localhost:8080
+services:
+  master:
+    image: hummer12007/parcs-node
+    environment:
+      - PARCS_ARGS=master
+    ports:
+      - "8080:8080"
+  worker1:
+    image: hummer12007/parcs-node
+    environment:
+      - PARCS_ARGS=worker master
+    depends_on: [master]
+  worker2:
+    image: hummer12007/parcs-node
+    environment:
+      - PARCS_ARGS=worker master
+    depends_on: [master]
+  worker3:
+    image: hummer12007/parcs-node
+    environment:
+      - PARCS_ARGS=worker master
+    depends_on: [master]
+  worker4:
+    image: hummer12007/parcs-node
+    environment:
+      - PARCS_ARGS=worker master
+    depends_on: [master]
